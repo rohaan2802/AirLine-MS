@@ -1,4 +1,4 @@
-# AirLineHandlingSystem (AirControlX)
+# AirLine Managment System (AirControlX)
 
 Operating Systems project: an **airport / ATC simulation** in one translation unit. Flights move through phases, three **runways** each run a **worker thread** with a **mutex**, ATC uses **priority queues**, and an **SFML** window (600×500, title **AirControlX Simulation**) draws runway occupancy. Speed-limit breaches set a violation flag; an **airline portal** can list/pay **AVN** records if any were generated.
 
