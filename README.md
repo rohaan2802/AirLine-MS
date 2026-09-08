@@ -24,9 +24,28 @@ The repository includes a curated project gallery showing both sides of the simu
 
 ![AirControlX flight input workflow](docs/screenshots/flight-input.png)
 
+### Runway assignment
+
+![AirControlX runway assignment output](docs/screenshots/runway-assignment.png)
+
+### Flight phases and speed violations
+
+![AirControlX flight phases and violations](docs/screenshots/phases-and-violations.png)
+
+## Input and output logs
+
+The full terminal transcript is preserved for reproducibility:
+
+- [Full terminal log](Screenshots%20and%20Input-Output%20Terminal%20Logs/full_terminal_log.txt)
+- [Original terminal output](Screenshots%20and%20Input-Output%20Terminal%20Logs/terminal_output.txt)
+
+The captured flow covers flight creation, runway assignment, simulation updates, phase transitions, violation handling, and the final schedule. The screenshots above provide the key visual checkpoints without requiring readers to open the raw log first.
+
 ## Table of contents
 
-1. [What this program does](#what-this-program-does)
+1. [Screenshots](#screenshots)
+2. [Input and output logs](#input-and-output-logs)
+3. [What this program does](#what-this-program-does)
 2. [Architecture](#architecture)
 3. [Enums, constants, airlines](#enums-constants-airlines)
 4. [`Flight`](#flight)
