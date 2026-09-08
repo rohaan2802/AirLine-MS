@@ -8,6 +8,22 @@ Operating Systems project: an **airport / ATC simulation** in one translation un
 
 ---
 
+## Screenshots
+
+The repository includes a curated project gallery showing both sides of the simulation: the SFML runway window and the terminal workflow used to create and process flights. The images below are copied from the original capture archive and use stable, descriptive filenames for GitHub rendering.
+
+### Live simulation window
+
+![AirControlX SFML runway simulation](docs/screenshots/simulation-window.png)
+
+### Final terminal output
+
+![AirControlX final terminal output](docs/screenshots/final-terminal-output.png)
+
+### Flight input and setup
+
+![AirControlX flight input workflow](docs/screenshots/flight-input.png)
+
 ## Table of contents
 
 1. [What this program does](#what-this-program-does)
