@@ -1,15 +1,18 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <queue>
 #include <ctime>
 #include <cstdlib>
+#include <cctype>
 #include <thread>
 #include <mutex>
 #include <chrono>
 #include <atomic>
 #include <iomanip>
 #include <limits>
+#include <optional>
 #include <SFML/Graphics.hpp>
 using namespace std;
 using namespace chrono;
@@ -29,9 +32,15 @@ const float FUEL_THRESHOLD = 100.0f;
 typedef system_clock Clock;
 typedef duration<double> Duration;
 
+#ifdef _WIN32
+inline void safe_localtime(time_t t, tm* out) { localtime_s(out, &t); }
+#else
+inline void safe_localtime(time_t t, tm* out) { localtime_r(&t, out); }
+#endif
+
 std::string formatTime(time_t t) {
     struct tm now_tm;
-    localtime_r(&t, &now_tm);
+    safe_localtime(t, &now_tm);
     std::ostringstream oss;
     oss << std::put_time(&now_tm, "%H:%M:%S");
     return oss.str();
@@ -490,8 +499,8 @@ public:
                 cout << "[DEBUG] Assigned runway to Commercial Flight " << flight->getFlightNumber() << "\n";
                 queue.commercial.pop();
             } else {
-                queue.cargo.pop();
-                queue.cargo.push(flight);
+                queue.commercial.pop();
+                queue.commercial.push(flight);
             }
         }
     }
@@ -707,43 +716,43 @@ public:
     void renderVisualization() {
         window->clear(sf::Color::Black);
         sf::Font font;
-        if (!font.loadFromFile("arial.ttf")) {
+        if (!font.openFromFile("arial.ttf")) {
             cout << "Error loading font\n";
             return;
         }
 
         // Draw runways
         sf::RectangleShape rwyA(sf::Vector2f(300, 50));
-        rwyA.setPosition(100, 100);
+        rwyA.setPosition(sf::Vector2f(100, 100));
         rwyA.setFillColor(atc->getRunwayA()->isOccupied() ? sf::Color::Red : sf::Color::Green);
         window->draw(rwyA);
-        sf::Text rwyAText("RWY_A", font, 20);
-        rwyAText.setPosition(100, 80);
+        sf::Text rwyAText(font, "RWY_A", 20);
+        rwyAText.setPosition(sf::Vector2f(100, 80));
         window->draw(rwyAText);
 
         sf::RectangleShape rwyB(sf::Vector2f(300, 50));
-        rwyB.setPosition(100, 200);
+        rwyB.setPosition(sf::Vector2f(100, 200));
         rwyB.setFillColor(atc->getRunwayB()->isOccupied() ? sf::Color::Red : sf::Color::Green);
         window->draw(rwyB);
-        sf::Text rwyBText("RWY_B", font, 20);
-        rwyBText.setPosition(100, 180);
+        sf::Text rwyBText(font, "RWY_B", 20);
+        rwyBText.setPosition(sf::Vector2f(100, 180));
         window->draw(rwyBText);
 
         sf::RectangleShape rwyC(sf::Vector2f(300, 50));
-        rwyC.setPosition(100, 300);
+        rwyC.setPosition(sf::Vector2f(100, 300));
         rwyC.setFillColor(atc->getRunwayC()->isOccupied() ? sf::Color::Red : sf::Color::Green);
         window->draw(rwyC);
-        sf::Text rwyCText("RWY_C", font, 20);
-        rwyCText.setPosition(100, 280);
+        sf::Text rwyCText(font, "RWY_C", 20);
+        rwyCText.setPosition(sf::Vector2f(100, 280));
         window->draw(rwyCText);
 
         // Draw ATC tower
         sf::RectangleShape tower(sf::Vector2f(50, 100));
-        tower.setPosition(450, 150);
+        tower.setPosition(sf::Vector2f(450, 150));
         tower.setFillColor(sf::Color::Blue);
         window->draw(tower);
-        sf::Text towerText("ATC", font, 20);
-        towerText.setPosition(450, 130);
+        sf::Text towerText(font, "ATC", 20);
+        towerText.setPosition(sf::Vector2f(450, 130));
         window->draw(towerText);
 
         // Draw aircraft
@@ -754,10 +763,10 @@ public:
             float x = 100 + (flight->getPhase() * 50);
             float y = flight->getAssignedRunway() ? (flight->getAssignedRunway()->getID() == RWY_A ? 110 :
                                                      flight->getAssignedRunway()->getID() == RWY_B ? 210 : 310) : 400;
-            aircraft.setPosition(x, y);
+            aircraft.setPosition(sf::Vector2f(x, y));
             window->draw(aircraft);
-            sf::Text flightText(flight->getFlightNumber(), font, 15);
-            flightText.setPosition(x, y - 20);
+            sf::Text flightText(font, flight->getFlightNumber(), 15);
+            flightText.setPosition(sf::Vector2f(x, y - 20));
             window->draw(flightText);
         }
 
@@ -769,9 +778,8 @@ public:
         cout << "Simulation starts at: " << formatTime(simulationStartTime) << "\n";
         auto begin = Clock::now();
         while (Duration(Clock::now() - begin).count() < duration && window->isOpen()) {
-            sf::Event event;
-            while (window->pollEvent(event)) {
-                if (event.type == sf::Event::Closed) window->close();
+            while (const std::optional event = window->pollEvent()) {
+                if (event->is<sf::Event::Closed>()) window->close();
             }
 
             cout << "[DEBUG] Simulation tick at " << formatTime(time(nullptr)) << "\n";
@@ -944,7 +952,7 @@ Flight* createFlight(vector<Airline>& airlines) {
 
     time_t now = time(0);
     tm now_tm;
-    localtime_r(&now, &now_tm);
+    safe_localtime(now, &now_tm);
     now_tm.tm_hour = hour;
     now_tm.tm_min = mins;
     now_tm.tm_sec = 0;
@@ -990,7 +998,7 @@ void airlinePortal(AirTrafficControl* atc) {
 
 int main() {
     srand(static_cast<unsigned int>(time(0)));
-    sf::RenderWindow window(sf::VideoMode(600, 500), "AirControlX Simulation");
+    sf::RenderWindow window(sf::VideoMode(sf::Vector2u(600, 500)), "AirControlX Simulation");
     Runway rwyA(RWY_A), rwyB(RWY_B), rwyC(RWY_C);
     AirTrafficControl controller(&rwyA, &rwyB, &rwyC);
     Simulation simulation(&controller, &window);

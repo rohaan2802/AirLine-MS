@@ -1,0 +1,583 @@
+Add flight details? (Y/N): 
+=== Add Flight ===
+
+Enter 3-digit Flight Number (e.g., 301): 
+Select Airline:
+PIA
+AirBlue
+FedEx
+PAF
+Blue Dart
+AghaKhan Air
+
+Directions:
+- NORTH (Int. Arrival)
+- SOUTH (Dom. Arrival)
+- EAST (Int. Departure)
+- WEST (Dom. Departure)
+Enter Direction (N/S/E/W): Enter Scheduled Time (HH:MM): 
+Flight Created:
+Flight Number: PK301
+Airline: PIA
+Direction: International Arrival (NORTH)
+Type: Commercial
+
+Add another flight? (Y/N): 
+=== Add Flight ===
+
+Enter 3-digit Flight Number (e.g., 301): 
+Select Airline:
+PIA
+AirBlue
+FedEx
+PAF
+Blue Dart
+AghaKhan Air
+
+Directions:
+- NORTH (Int. Arrival)
+- SOUTH (Dom. Arrival)
+- EAST (Int. Departure)
+- WEST (Dom. Departure)
+Enter Direction (N/S/E/W): Enter Scheduled Time (HH:MM): 
+Flight Created:
+Flight Number: FE401
+Airline: FedEx
+Direction: International Departure (EAST)
+Type: Cargo
+
+Add another flight? (Y/N): 
+=== Add Flight ===
+
+Enter 3-digit Flight Number (e.g., 301): 
+Select Airline:
+PIA
+AirBlue
+FedEx
+PAF
+Blue Dart
+AghaKhan Air
+Emergency Flight (A for Arrival, D for Departure): Enter Scheduled Time (HH:MM): 
+Flight Created:
+Flight Number: PA501
+Airline: PAF
+Direction: Emergency Arrival (ARR)
+Type: Emergency
+
+Add another flight? (Y/N): Simulation starts at: 13:10:20
+[DEBUG] Simulation tick at 13:10:20
+[DEBUG] Queued Emergency Arrival Flight PA501
+[FR2.1/FR2.3] Emergency Flight PA501 assigned to RWY_C
+[DEBUG] Assigned runway to Emergency Flight PA501
+[FR2.1] Commercial Flight PK301 assigned to RWY_A
+[DEBUG] Assigned runway to Commercial Flight PK301
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=0
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=0
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=0
+
+=== Simulation Update @ 13:10:20 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  HOLDING        471       ACTIVE      RWY_A          
+FE401       FedEx          Cargo       AT_GATE        1         ACTIVE      None           
+PA501       PAF            Emergency   APPROACH       276       ACTIVE      RWY_C          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (1):
+ - FE401 (Sched: 00:02:00)
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Occupied by PK301
+RWY_B: Available
+RWY_C: Occupied by PA501
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:21
+Violation: Flight PK301 speed 691 km/h in HOLDING (400–600) [AVN issued]
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=1
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=1
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+Violation: Flight PA501 speed 312 km/h in APPROACH (240–290) [AVN issued]
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=1
+[DEBUG] Simulation tick at 13:10:22
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=2
+Violation: Flight FE401 speed 11 km/h at GATE (≤10) [AVN issued]
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=2
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=2
+[DEBUG] Simulation tick at 13:10:23
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=3
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=3
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=3
+[DEBUG] Simulation tick at 13:10:24
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=4
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=4
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=4
+[DEBUG] Simulation tick at 13:10:25
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=5
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=5
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+Violation: Flight PA501 speed 202 km/h in APPROACH (240–290) [AVN issued]
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=5
+
+=== Simulation Update @ 13:10:25 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  HOLDING        469       ACTIVE      RWY_A          
+FE401       FedEx          Cargo       AT_GATE        2         ACTIVE      None           
+PA501       PAF            Emergency   APPROACH       202       ACTIVE      RWY_C          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (1):
+ - FE401 (Sched: 00:02:00)
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Occupied by PK301
+RWY_B: Available
+RWY_C: Occupied by PA501
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:26
+Violation: Flight PK301 speed 656 km/h in HOLDING (400–600) [AVN issued]
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=6
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=6
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=6
+[DEBUG] Simulation tick at 13:10:27
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=7
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=7
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=7
+[DEBUG] Simulation tick at 13:10:28
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=8
+Violation: Flight FE401 speed 13 km/h at GATE (≤10) [AVN issued]
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=8
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=APPROACH runway=RWY_C elapsed=8
+[DEBUG] Progressing phase for flight PA501 from APPROACH
+[DEBUG] Simulation tick at 13:10:29
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=9
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=None elapsed=9
+[DEBUG] Flight FE401 waiting for runway in phase AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=1
+[Runway 0] Forced release after 10s by PK301
+[Runway 2] Forced release after 10s by PA501
+[DEBUG] Simulation tick at 13:10:30
+[FR2.1] Cargo Flight FE401 assigned to RWY_C
+[DEBUG] Assigned runway to Cargo Flight FE401
+[DEBUG] Flight PK301 status=ACTIVE phase=HOLDING runway=RWY_A elapsed=10
+[DEBUG] Progressing phase for flight PK301 from HOLDING
+[DEBUG] Flight FE401 status=ACTIVE phase=AT_GATE runway=RWY_C elapsed=10
+[DEBUG] Progressing phase for flight FE401 from AT_GATE
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=2
+
+=== Simulation Update @ 13:10:30 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  APPROACH       288       ACTIVE      RWY_A          
+FE401       FedEx          Cargo       TAXI           29        ACTIVE      RWY_C          
+PA501       PAF            Emergency   LANDING        190       ACTIVE      RWY_C          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Occupied by FE401
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:31
+[DEBUG] Flight PK301 status=ACTIVE phase=APPROACH runway=RWY_A elapsed=1
+[DEBUG] Flight FE401 status=ACTIVE phase=TAXI runway=RWY_C elapsed=1
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=3
+[DEBUG] Simulation tick at 13:10:32
+[DEBUG] Flight PK301 status=ACTIVE phase=APPROACH runway=RWY_A elapsed=2
+[DEBUG] Flight FE401 status=ACTIVE phase=TAXI runway=RWY_C elapsed=2
+
+*** GROUND FAULT: Flight FE401 (FedEx) towed off. ***
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=4
+[DEBUG] Simulation tick at 13:10:33
+[DEBUG] Flight PK301 status=ACTIVE phase=APPROACH runway=RWY_A elapsed=3
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=5
+[DEBUG] Simulation tick at 13:10:34
+[DEBUG] Flight PK301 status=ACTIVE phase=APPROACH runway=RWY_A elapsed=4
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=6
+[DEBUG] Simulation tick at 13:10:35
+[DEBUG] Flight PK301 status=ACTIVE phase=APPROACH runway=RWY_A elapsed=5
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=7
+
+=== Simulation Update @ 13:10:35 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  APPROACH       258       ACTIVE      RWY_A          
+PA501       PAF            Emergency   LANDING        98        ACTIVE      RWY_C          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:37
+[DEBUG] Flight PK301 status=ACTIVE phase=APPROACH runway=RWY_A elapsed=7
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=9
+[DEBUG] Simulation tick at 13:10:38
+[DEBUG] Flight PK301 status=ACTIVE phase=APPROACH runway=RWY_A elapsed=8
+[DEBUG] Progressing phase for flight PK301 from APPROACH
+[DEBUG] Flight PA501 status=ACTIVE phase=LANDING runway=RWY_C elapsed=10
+[DEBUG] Progressing phase for flight PA501 from LANDING
+[DEBUG] Simulation tick at 13:10:39
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=1
+[DEBUG] Flight PA501 status=ACTIVE phase=TAXI runway=RWY_C elapsed=1
+[DEBUG] Simulation tick at 13:10:40
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=2
+Violation: Flight PA501 speed 31 km/h in TAXI (≤30) [AVN issued]
+[DEBUG] Flight PA501 status=ACTIVE phase=TAXI runway=RWY_C elapsed=2
+
+=== Simulation Update @ 13:10:40 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  LANDING        189       ACTIVE      RWY_A          
+PA501       PAF            Emergency   TAXI           31        ACTIVE      RWY_C          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:41
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=3
+[DEBUG] Flight PA501 status=ACTIVE phase=TAXI runway=RWY_C elapsed=3
+[DEBUG] Simulation tick at 13:10:42
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=4
+[DEBUG] Flight PA501 status=ACTIVE phase=TAXI runway=RWY_C elapsed=4
+[DEBUG] Simulation tick at 13:10:43
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=5
+Violation: Flight PA501 speed 35 km/h in TAXI (≤30) [AVN issued]
+[DEBUG] Flight PA501 status=ACTIVE phase=TAXI runway=RWY_C elapsed=5
+
+*** GROUND FAULT: Flight PA501 (PAF) towed off. ***
+[DEBUG] Simulation tick at 13:10:44
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=6
+[DEBUG] Simulation tick at 13:10:45
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=7
+
+=== Simulation Update @ 13:10:45 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  LANDING        101       ACTIVE      RWY_A          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:46
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=8
+[DEBUG] Simulation tick at 13:10:47
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=9
+[DEBUG] Simulation tick at 13:10:48
+Violation: Flight PK301 speed 21 km/h in LANDING (30–240) [AVN issued]
+[DEBUG] Flight PK301 status=ACTIVE phase=LANDING runway=RWY_A elapsed=10
+[DEBUG] Progressing phase for flight PK301 from LANDING
+[DEBUG] Simulation tick at 13:10:49
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=1
+[DEBUG] Simulation tick at 13:10:50
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=2
+
+=== Simulation Update @ 13:10:50 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  TAXI           30        ACTIVE      RWY_A          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:51
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=3
+[DEBUG] Simulation tick at 13:10:52
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=4
+[DEBUG] Simulation tick at 13:10:53
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=5
+[DEBUG] Simulation tick at 13:10:54
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=6
+[DEBUG] Simulation tick at 13:10:55
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=7
+
+=== Simulation Update @ 13:10:55 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  TAXI           17        ACTIVE      RWY_A          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:10:56
+[DEBUG] Flight PK301 status=ACTIVE phase=TAXI runway=RWY_A elapsed=8
+[DEBUG] Progressing phase for flight PK301 from TAXI
+[DEBUG] Simulation tick at 13:10:57
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=1
+[DEBUG] Simulation tick at 13:10:58
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=2
+[DEBUG] Simulation tick at 13:10:59
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=3
+[DEBUG] Simulation tick at 13:11:00
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=4
+
+=== Simulation Update @ 13:11:00 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  AT_GATE        2         ACTIVE      RWY_A          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:11:01
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=5
+[DEBUG] Simulation tick at 13:11:02
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=6
+[DEBUG] Simulation tick at 13:11:03
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=7
+[DEBUG] Simulation tick at 13:11:04
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=8
+[DEBUG] Simulation tick at 13:11:05
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=9
+
+=== Simulation Update @ 13:11:05 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+PK301       PIA            Commercial  AT_GATE        5         ACTIVE      RWY_A          
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:11:06
+[DEBUG] Flight PK301 status=ACTIVE phase=AT_GATE runway=RWY_A elapsed=10
+[DEBUG] Progressing phase for flight PK301 from AT_GATE
+[DEBUG] Releasing runway RWY_A for completed flight PK301
+
+*** GROUND FAULT: Flight PK301 (PIA) towed off. ***
+[DEBUG] Simulation tick at 13:11:07
+[DEBUG] Simulation tick at 13:11:08
+[DEBUG] Simulation tick at 13:11:09
+[DEBUG] Simulation tick at 13:11:10
+
+=== Simulation Update @ 13:11:10 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:11:11
+[DEBUG] Simulation tick at 13:11:12
+[DEBUG] Simulation tick at 13:11:13
+[DEBUG] Simulation tick at 13:11:14
+[DEBUG] Simulation tick at 13:11:15
+
+=== Simulation Update @ 13:11:15 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+[DEBUG] Simulation tick at 13:11:16
+[DEBUG] Simulation tick at 13:11:17
+[DEBUG] Simulation tick at 13:11:18
+[DEBUG] Simulation tick at 13:11:19
+[DEBUG] Simulation tick at 13:11:20
+
+=== Simulation Update @ 13:11:20 ===
+
+=== Flight States ===
+Flight      Airline        Type        Phase          Speed     Status      Runway         
+
+=== ARRIVAL QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== DEPARTURE QUEUE ===
+Emergency (0):
+Cargo (0):
+Commercial (0):
+
+=== Runway Statuses ===
+RWY_A: Available
+RWY_B: Available
+RWY_C: Available
+
+=== Active AVNs ===
+=====================================
+Simulation ends at: 13:11:21
+
+=== Final Schedule ===
+PK301 @ 00:01:00 - None
+FE401 @ 00:02:00 - None
+PA501 @ 00:03:00 - None
+
+=== Airline Portal ===
+
+=== Active AVNs ===
+Enter AVN ID to pay: Enter payment amount (PKR): Payment Failed for AVN AVN1
+Payment failed
